@@ -8,14 +8,14 @@ exports.getAll = (req, res) => {
     }).catch(err=>console.log(err));
     
 }
-exports.createPlace = (req, res) => { 
+exports.createPlaces = (req, res) => {
     console.log(req.body);
     const place = req.body;
     Place.create(place).then((places)=>{
         res.send(places)
     }).catch(err=>console.log(err));
 }
-exports.deletePlace = (req,res) => { 
+exports.deletePlaces = (req,res) => {
     const id = +req.params.id
     Place.destroy({
         where: {

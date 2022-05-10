@@ -8,14 +8,14 @@ exports.getAll = (req, res) => {
     }).catch(err=>console.log(err));
     
 }
-exports.createCategorie = (req, res) => { 
+exports.createCategories = (req, res) => {
     console.log(req.body);
     const categorie = req.body;
     Categorie.create(categorie).then((categories)=>{
         res.send(categories)
     }).catch(err=>console.log(err));
 }
-exports.deleteCategorie = (req,res) => { 
+exports.deleteCategories = (req,res) => {
     const id = +req.params.id
     Categorie.destroy({
         where: {

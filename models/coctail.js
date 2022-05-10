@@ -25,9 +25,7 @@ module.exports = (sequelize, Sequelize) => {
   Type: {
     type: Sequelize.INTEGER,
   },
-  Order_id: {
-        type: Sequelize.INTEGER,
-      },
+
   Count: {
     type: Sequelize.INTEGER,
   }

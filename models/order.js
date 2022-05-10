@@ -28,6 +28,9 @@ module.exports = (sequelize, Sequelize) => {
         },
        Party_id: {
           type: Sequelize.INTEGER,
+        },
+        Order_id: {
+            type: Sequelize.INTEGER,
         }
       });
     return Order;

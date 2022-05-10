@@ -20,13 +20,14 @@ module.exports = (sequelize, Sequelize) => {
         PhoneNumber: {
           type: Sequelize.STRING,
         },
-        Discont: {
+        Discount: {
           type: Sequelize.INTEGER,
         },
         Order_id: {
           type: Sequelize.INTEGER,
         }
       });
+
     return User;
 }
 

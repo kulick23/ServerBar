@@ -8,14 +8,14 @@ exports.getAll = (req, res) => {
     }).catch(err=>console.log(err));
     
 }
-exports.createRole = (req, res) => { 
+exports.createRoles = (req, res) => {
     console.log(req.body);
     const role = req.body;
     Role.create(role).then((roles)=>{
         res.send(roles)
     }).catch(err=>console.log(err));
 }
-exports.deleteRole = (req,res) => { 
+exports.deleteRoles = (req,res) => {
     const id = +req.params.id
     Role.destroy({
         where: {
