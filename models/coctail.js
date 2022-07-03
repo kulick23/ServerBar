@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const Coctail = sequelize.define("coctail ", {
+  const Coctail = sequelize.define("coctail", {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -7,28 +7,18 @@ module.exports = (sequelize, Sequelize) => {
       },
       ProductName: {
         type: Sequelize.STRING,
-  unique: true,
+        unique: true,
       },
       Price: {
         type: Sequelize.DOUBLE,
       },
-  Image: {            
-    type: Sequelize.STRING,
-    unique: true,
-  },
-  Volume: {
+      Image: {            
+        type: Sequelize.STRING,
+        unique: true,
+      },
+      Volume: {
         type: Sequelize.DOUBLE,
       },
-      Description: {
-        type: Sequelize.STRING,
-      },
-  Type: {
-    type: Sequelize.INTEGER,
-  },
-
-  Count: {
-    type: Sequelize.INTEGER,
-  }
     });
   return Coctail;
 }

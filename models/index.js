@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const sequelize = new Sequelize("ServerBar", "server", "bar", {
+const sequelize = new Sequelize("server_bar", "root", "root", {
   dialect: "mysql",
   host: "localhost",
   define: {
@@ -18,83 +18,28 @@ db.order = require('./order')(sequelize, Sequelize);
 db.party = require('./party')(sequelize, Sequelize);
 db.places = require('./places')(sequelize, Sequelize);
 module.exports = db;
-db.users.hasMany(db.order,{
-  foreignKey: 'order_id',
-  targetKey: 'id',
-});
 
-db.order.belongsTo(db.users,{
-  foreignKey: 'order_id',
-  targetKey: 'id',
-});
+db.users.hasMany(db.order);
+db.order.belongsTo(db.users);
 
-db.users.hasOne(db.roles,{
-  foreignKey: 'role',
-  targetKey: 'id',
-});
+db.users.belongsTo(db.roles);
+db.roles.hasMany(db.users);
 
-db.roles.belongsTo(db.users,{
-  foreignKey: 'order_id',
-  targetKey: 'id',
-});
+db.users.belongsTo(db.discount);
+db.discount.hasOne(db.users);
 
-db.users.hasOne(db.discount,{
-  foreignKey: 'Discount',
-  targetKey: 'id',
-});
+db.order.belongsTo(db.discount);
+db.discount.hasOne(db.order);
 
-db.discount.belongsTo(db.users,{
-  foreignKey: 'order_id',
-  targetKey: 'id',
-});
+db.order.belongsTo(db.party);
+db.party.hasOne(db.order);
 
-db.order.hasOne(db.discount,{
-  foreignKey: 'Discount_id',
-  targetKey: 'id',
-});
+db.order.belongsTo(db.places);
+db.places.hasOne(db.order);
 
-db.discount.belongsTo(db.order,{
-  foreignKey: 'Discount_id',
-  targetKey: 'id',
-});
+db.order.belongsTo(db.coctail);
+db.coctail.hasMany(db.order);
 
-db.order.hasOne(db.party,{
-  foreignKey: 'Party_id',
-  targetKey: 'id',
-});
-
-db.party.belongsTo(db.order,{
-  foreignKey: 'Party_id',
-  targetKey: 'id',
-});
-
-db.order.hasOne(db.places,{
-  foreignKey: 'Place',
-  targetKey: 'id',
-});
-
-db.places.belongsTo(db.order,{
-  foreignKey: 'Place',
-  targetKey: 'id',
-});
-
-db.coctail.hasOne(db.categories,{
-  foreignKey: 'Type',
-  targetKey: 'id',
-});
-
-db.categories.belongsTo(db.coctail,{
-  foreignKey: 'Type',
-  targetKey: 'id',
-});
-
-db.order.hasMany(db.coctail,{
-  foreignKey: 'coctail_id',
-  targetKey: 'id',
-});
-
-db.coctail.belongsTo(db.order,{
-  foreignKey: 'coctail_id',
-  targetKey: 'id',
-});
+db.categories.hasMany(db.coctail);
+db.coctail.belongsTo(db.categories);
 

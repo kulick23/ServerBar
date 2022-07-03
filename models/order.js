@@ -5,14 +5,8 @@ module.exports = (sequelize, Sequelize) => {
           autoIncrement: true,
           primaryKey: true,
         },
-        User: {
-          type: Sequelize.INTEGER,
-        },
         Time: {
           type: Sequelize.TIME,
-        },
-        Place: {
-          type: Sequelize.INTEGER,
         },
         Comments: {
           type: Sequelize.STRING,
@@ -22,15 +16,6 @@ module.exports = (sequelize, Sequelize) => {
         },
         Date: {
           type: Sequelize.DATE,
-        },
-        Discont_id: {
-          type: Sequelize.INTEGER,
-        },
-       Party_id: {
-          type: Sequelize.INTEGER,
-        },
-        Order_id: {
-            type: Sequelize.INTEGER,
         }
       });
     return Order;

@@ -8,7 +8,17 @@ module.exports = (sequelize, Sequelize) => {
         
        Amount: {
           type: Sequelize.INTEGER,
+        },
+        Des1: {
+          type: Sequelize.STRING,
+        },
+        Des2: {
+          type: Sequelize.STRING,
+        },
+        Des3: {
+          type: Sequelize.STRING,
         }
+  
       });
     return Discount;
 }

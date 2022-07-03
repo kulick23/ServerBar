@@ -5,26 +5,18 @@ module.exports = (sequelize, Sequelize) => {
           autoIncrement: true,
           primaryKey: true,
         },
-        Role: {
-          type: Sequelize.INTEGER,
-        },
         Name: {
           type: Sequelize.STRING,
         },
         Login: {
           type: Sequelize.STRING,
+          unique: true,
         },
         Password: {
           type: Sequelize.STRING,
         },
         PhoneNumber: {
           type: Sequelize.STRING,
-        },
-        Discount: {
-          type: Sequelize.INTEGER,
-        },
-        Order_id: {
-          type: Sequelize.INTEGER,
         }
       });
 
